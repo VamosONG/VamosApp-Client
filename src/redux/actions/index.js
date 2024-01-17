@@ -44,7 +44,7 @@ export const postNewViaje = (infoViaje) => {
     infoViaje.userId= "3027b2fa-4997-4068-9f6d-c847baa02291"
     return async (dispatch) => {
         try {
-            const { data } = await axios.post(`http://localhost:3001/offer/create`, infoViaje);
+            const { data } = await axios.post(`https://vamosappserver.onrender.com/offer/create`, infoViaje);
             console.log(data)
             await dispatch({
                 type: POST_NEW_VIAJE,
@@ -61,7 +61,7 @@ export const postNewViaje = (infoViaje) => {
 
 export const getSolicitudes = () =>{
     return async(dispatch)=> {
-        const endpoint= 'http://localhost:3001/trips/reserves' //Se cambió a la ruta con viajes reservados
+        const endpoint= 'https://vamosappserver.onrender.com/trips/reserves' //Se cambió a la ruta con viajes reservados
         try {
             const {data}= await axios.get(endpoint)
             console.log(data);
@@ -159,7 +159,7 @@ export const viajeConfirmado = (info) => {
     console.log(info)
     return async (dispatch) => {
         try {
-            const { data } = await axios.put(`http://localhost:3001/trips/reserves/create`, info);
+            const { data } = await axios.put(`https://vamosappserver.onrender.com/trips/reserves/create`, info);
             console.log(data)
             dispatch({
                 type: VIAJE_CONFIRMADO,
@@ -176,7 +176,7 @@ export const filtrarConductores = (info) => {
     console.log(info)
     return async (dispatch) => {
         try {
-            const { data } = await axios.get(`http://localhost:3001/drivers/filter`, info);
+            const { data } = await axios.get(`https://vamosappserver.onrender.com/drivers/filter`, info);
             console.log(data)
             dispatch({
                 type: GET_FILTERED,
